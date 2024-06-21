@@ -8,6 +8,8 @@ import RegisterPage from "../views/RegisterPage";
 import io from "socket.io-client";
 import Toastify from "toastify-js"
 import TouchDown from "../views/TouchDown";
+import CodeMeet from "../Meet/CodeMeet";
+import Room from "../Meet/Room";
 
 const socket = io("http://localhost:3000", {
     autoConnect: false,
@@ -18,7 +20,11 @@ const url = "http://localhost:3000";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <TouchDown></TouchDown>
+        element: <CodeMeet></CodeMeet>
+    },
+    {
+        path: "/room/:roomID",
+        element: <Room></Room>
     },
     {
         path: "/register",

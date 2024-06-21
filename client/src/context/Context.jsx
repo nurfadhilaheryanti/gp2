@@ -42,7 +42,7 @@ const ContextProvider = ({ children }) => {
     console.log("callAccepted true");
 
     const peer = new Peer({ initiator: false, trickle: false, stream });
-   
+
 
     peer.on('signal', (data) => {
       socket.emit('answerCall', { signal: data, to: call.from });
@@ -61,7 +61,7 @@ const ContextProvider = ({ children }) => {
       userVideo.current.srcObject = currentStream;
     });
 
-    
+
     connectionRef.current = peer;
     console.log('nyampe ga');
   };
@@ -69,16 +69,16 @@ const ContextProvider = ({ children }) => {
   const callUser = (id) => {
     // Create a new Peer object to handle the WebRTC connection.
     const peer = new Peer({ initiator: true, trickle: false, stream });
-    
+
     peer.on('signal', (data) => {
       socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
     });
-    
+
     peer.on('stream', (currentStream) => {
       //ini video yg ditelp
       userVideo.current.srcObject = currentStream;
     });
-    
+
     socket.on('callAccepted', (signal) => {
       setCallAccepted(true);
       peer.signal(signal);
