@@ -1,0 +1,17 @@
+{
+  "name": "gp2",
+  "version": "1.0.0",
+  "description": "ini untuk backend gp2 meet",
+  "main": "socket.js",
+  "scripts": {
+    "start": "node socket.js",
+    "dev": "nodemon socket.js"
+  },
+  "author": "gp2",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5"
+  }
+}
